@@ -133,12 +133,38 @@ color: #FFFFFF;
   justify-content: space-between;
   align-items: center;
   grid-area: social;
-  background: lightsalmon;
 }
   
 .scroll {
   grid-area: scroll;
-  background: lime;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2px;
+  pointer-events: none;
+  animation: scroll-drop-up .5s ease-in-out 1 both;
+}
+
+.scroll:hover {
+  /* align-items: end; */
+  animation: scroll-drop-down .5s ease-in-out 1 both;
+}
+
+@keyframes scroll-drop-down {
+  from { transform: translate(0, 0); }
+  to { transform: translate(0, 10px); }
+}
+
+@keyframes scroll-drop-up {
+  to { transform: translate(0, 0); }
+  from { transform: translate(0, 10px); }
+}
+
+.scroll-btn {
+  width: 60%;
+  height: auto;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .paganini {
