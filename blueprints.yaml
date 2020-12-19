@@ -1,0 +1,32 @@
+name: Benjamin Paulus
+slug: benjamin-paulus
+type: theme
+version: 0.1.0
+description: Main theme for Benjamin Paulus' site
+icon: rebel
+author:
+  name: Halley Interactive
+  email: niels.overwijn+grav@gmail.com
+homepage: https://github.com/halley-interactive/benjamin-paulus-grav
+demo: http://demo.yoursite.com
+keywords: grav, theme, etc
+bugs: https://github.com/halley-interactive/benjamin-paulus-grav/issues
+readme: https://github.com/halley-interactive/benjamin-paulus-grav/blob/README.md
+license: Apache-2.0
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+
+form:
+  validation: loose
+  fields:
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in Menu
+        highlight: 1
+        default: 1
+        options:
+          1: PLUGIN_ADMIN.ENABLED
+          0: PLUGIN_ADMIN.DISABLED
+        validate:
+          type: bool

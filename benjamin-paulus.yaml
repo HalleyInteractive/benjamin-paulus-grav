@@ -1,0 +1,6 @@
+enabled: true
+dropdown:
+  enabled: true
+
+title: Main page
+'@extends': default

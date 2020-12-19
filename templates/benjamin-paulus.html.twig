@@ -1,0 +1,69 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ (grav.language.getActive ?: grav.config.site.default_lang)|e }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e }} | {% endif %}{{ site.title|e }}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metadata.html.twig' %}
+
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png')|e }}" />
+    <link rel="canonical" href="{{ page.url(true, true)|e }}" />
+{% endblock head %}
+
+{% block stylesheets %}
+    {% do assets.addCss('https://unpkg.com/purecss@1.0.0/build/pure-min.css', 100) %}
+    {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %}
+    {% do assets.addCss('theme://css/custom.css', 98) %}
+{% endblock %}
+
+{% block assets deferred %}
+    {{ assets.css()|raw }}
+    {{ assets.js()|raw }}
+{% endblock %}
+</head>
+<body id="top" class="{{ page.header.body_classes|e }}">
+
+{% block body %}
+    <div class="grid-container">
+      <div class="main">
+        <img src="{{page.header.bp.splash|first.path}}" />
+        <div class="main-grid-container">
+          <div class="benjamin-paulus">
+            <img class="benjamin-paulus-stamp" src="{{ url('theme://images/BP_STAMP.svg') }}"/>
+            <img class="benjamin-paulus-title" src="{{ url('theme://images/BP_TITLE.svg') }}"/>
+          </div>
+          <div class="social">
+            <div class="social-btn rotate-in-2-cw"></div>
+            <div class="social-btn rotate-in-2-cw"></div>
+            <div class="social-btn rotate-in-2-cw"></div>
+            <div class="social-btn rotate-in-2-cw"></div>
+            <div class="social-btn rotate-in-2-cw"></div>
+            <div class="social-btn rotate-in-2-cw"></div>
+          </div>
+          <div class="scroll"></div>
+        </div>
+      </div>
+      <div class="paganini">
+        <img src="{{page.header.paganini.cover|first.path}}" />
+      </div>
+      <div class="paganini-projects">
+        {% for project in page.header.paganini.projects %}
+            <div class="paganini-project-image">
+                <img src="{{project.path}}" />
+            </div>
+        {% endfor %}
+      </div>
+      <div class="footer"></div>
+    </div>
+{% endblock %}
+
+{% block bottom %}
+    {{ assets.js('bottom')|raw }}
+{% endblock %}
+
+</body>
+</html>

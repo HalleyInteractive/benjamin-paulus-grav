@@ -1,0 +1,56 @@
+title: Benjamin Paulus
+@extends:
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      fields:
+        splash:
+          type: tab
+          title: Splash
+          fields:
+            header.bp.splash:
+              name: Benjamin Paulus Splash
+              type: file
+              label: Splash Image
+              destination: 'self@'
+              multiple: false
+              filesize: 10
+              accept:
+                - image/*
+            header.bp.social:
+              
+              fields:
+                header.bp.social.image:
+                  name: Social Links
+                  type: file
+                  label: Social Links
+                  destination: 'self@'
+                  filesize: 10
+                  multiple: false
+                  accept:
+                    - image/*
+        paganini:
+          type: tab
+          title: Paganini
+          fields:
+            header.paganini.cover:
+              name: Paganini Cover
+              type: file
+              label: Cover Image
+              destination: 'self@'
+              filesize: 10
+              multiple: false
+              accept:
+                - image/*
+            header.paganini.projects:
+              name: Paganini Project
+              type: file
+              label: Project Image
+              destination: 'self@'
+              filesize: 10
+              multiple: true
+              accept:
+                - image/*
