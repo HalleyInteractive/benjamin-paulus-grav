@@ -4,9 +4,14 @@ let lastKnowScrollPosition = 0;
 let ticking = false;
 
 function nextSlidePlease() {
+    const lastActiveSlide = document.querySelector('.paganini-project-image.deactivated');
     const currentSlide = document.querySelector('.paganini-project-image.active');
     const nextSlide = currentSlide.nextElementSibling || currentSlide.parentElement.firstElementChild;
+    if(lastActiveSlide) {
+        lastActiveSlide.classList.remove('deactivated');
+    }
     currentSlide.classList.remove('active');
+    currentSlide.classList.add('deactivated');
     nextSlide.classList.add('active');
 }
 
