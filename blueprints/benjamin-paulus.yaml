@@ -7,20 +7,11 @@ form:
   fields:
     tabs:
       fields:
-        splash:
+        social:
           type: tab
-          title: Splash
+          title: Social
           fields:
-            header.bp.splash:
-              name: Benjamin Paulus Splash
-              type: file
-              label: Splash Image
-              destination: 'self@'
-              multiple: false
-              filesize: 10
-              accept:
-                - image/*
-            header.bp.social:
+            header.social:
               name: social
               type: list
               label: Social Buttons
@@ -38,12 +29,25 @@ form:
                   name: url
                   type: text
                   label: URL
+        splash:
+          type: tab
+          title: Splash
+          fields:
+            header.bp.splash:
+              name: Benjamin Paulus Splash
+              type: file
+              label: Splash Image
+              destination: 'self@'
+              multiple: false
+              filesize: 10
+              accept:
+                - image/*
         paganini:
           type: tab
           title: Paganini
           fields:
             header.paganini.cover:
-              name: Paganini Cover
+              name: cover
               type: file
               label: Cover Image
               destination: 'self@'
@@ -52,7 +56,7 @@ form:
               accept:
                 - image/*
             header.paganini.projects:
-              name: Paganini Project
+              name: project
               type: file
               label: Project Image
               destination: 'self@'
@@ -60,3 +64,15 @@ form:
               multiple: true
               accept:
                 - image/*
+        footer:
+          type: tab
+          title: Footer
+          fields:
+            header.footer.cv:
+              name: cv
+              type: file
+              label: CV
+              destination: 'self@'
+              filesize: 10
+              multiple: false
+

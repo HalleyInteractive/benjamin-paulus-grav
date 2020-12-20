@@ -1,74 +1,116 @@
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!DOCTYPE html>
-<html lang="{{ (grav.language.getActive ?: grav.config.site.default_lang)|e }}">
-<head>
-{% block head %}
-    <meta charset="utf-8" />
-    <title>{% if header.title %}{{ header.title|e }} | {% endif %}{{ site.title|e }}</title>
+<html lang="{{ (grav.language.getActive
+    ?
+    : grav.config.site.default_lang)|e }}">
+  <head>
+    {% block head %}
+      <meta charset="utf-8" />
+      <title>
+        {% if header.title %}
+          {{ header.title|e }} |
+        {% endif %}{{ site.title|e }}
+      </title>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% include 'partials/metadata.html.twig' %}
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      {% include 'partials/metadata.html.twig' %}
 
-    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png')|e }}" />
-    <link rel="canonical" href="{{ page.url(true, true)|e }}" />
-{% endblock head %}
+      <link rel="icon"
+        type="image/png"
+        href="{{ url('theme://images/logo.png')|e }}" />
+      <link rel="canonical" href="{{ page.url(true, true)|e }}" />
+    {% endblock %}
 
-{% block stylesheets %}
-    {% do assets.addCss('theme://css/custom.css', 98) %}
-{% endblock %}
+    {% block stylesheets %}
+      {% do assets.addCss('theme://css/custom.css', 98) %}
+    {% endblock %}
 
-{% block assets deferred %}
+    {% block javascript %}
+      {% do assets.addJs('theme://js/main.js', 98) %}
+    {% endblock %}
+
+    {% block assets deferred %}
     {{ assets.css()|raw }}
     {{ assets.js()|raw }}
-{% endblock %}
-<script type="text/javascript" src="{{ url('theme://js/main.js') }}"></script>
-</head>
-<body id="top" class="{{ page.header.body_classes|e }}">
-
-{% block body %}
-    <div class="grid-container">
-      <div class="main">
-        <img src="{{page.header.bp.splash|first.path}}" />
-        <div class="main-grid-container">
-          <div class="benjamin-paulus">
-            <img class="benjamin-paulus-stamp" src="{{ url('theme://images/BP_STAMP.svg') }}"/>
-            <img class="benjamin-paulus-title" src="{{ url('theme://images/BP_TITLE.svg') }}"/>
-          </div>
-          <div class="social">
-            {% for social in page.header.bp.social %}
-            <div class="social-btn rotate-in-2-cw">
-                <a href="{{social.url}}" target="_blank"><img src="{{social.image|first.path}}" /></a>
+    {% endblock %}
+  </head>
+  <body id="top" class="{{ page.header.body_classes|e }}">
+    {% block body %}
+      <div class="grid-container">
+        <div class="main">
+          <img src="{{ page.header.bp.splash|first.path }}" />
+          <div class="main-grid-container">
+            <div class="benjamin-paulus">
+              <img class="benjamin-paulus-stamp"
+                src="{{ url('theme://images/BP_STAMP.svg') }}" />
+              <img class="benjamin-paulus-title"
+                src="{{ url('theme://images/BP_TITLE.svg') }}" />
             </div>
+            <div class="social">
+              {% for social in page.header.social %}
+                <div class="social-btn rotate-in-2-cw">
+                  <a href="{{ social.url }}" target="_blank">
+                    <img src="{{ social.image|first.path }}" />
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="scroll">
+              <img class="scroll-btn"
+                src="{{ url('theme://images/scroll.svg') }}" />
+            </div>
+          </div>
+        </div>
+        <div class="paganini">
+          <img src="{{ page.header.paganini.cover|first.path }}" />
+        </div>
+        <div class="paganini-projects">
+          {% for project in page.header.paganini.projects %}
+            {% set append %}
+              {% if loop.first %}
+                active
+              {% else %}
+                queue
+              {% endif %}
+            {% endset %}
+            <div class="paganini-project-image {{ append }}">
+              <img src="{{ project.path }}" />
+            </div>
+          {% endfor %}
+        </div>
+        <div class="footer">
+          <div class="contact">
+            CONTACT:
+          </div>
+          <div class="cv">
+            <a href="{{ page.header.footer.cv|first.path }}" target="_blank">
+              <img src="{{ url('theme://images/DOWNLOAD CV.png') }}" />
+            </a>
+          </div>
+          <div class="social footer-social">
+            {% for social in page.header.social %}
+              <div class="social-btn rotate-in-2-cw">
+                <a href="{{ social.url }}" target="_blank">
+                  <img src="{{ social.image|first.path }}" />
+                </a>
+              </div>
             {% endfor %}
           </div>
-          <div class="scroll">
-            <img class="scroll-btn" src="{{ url('theme://images/scroll.svg') }}"/>
+          <div class="halley-interactive">
+            <a href="https://www.halley-interactive.com" target="_blank">
+              <img src="{{ url('theme://images/Logo_Halley.png') }}" />
+            </a>
+          </div>
+          <div class="footer-visual">
+            <img src="{{ url('theme://images/footer-visual.png') }}" />
           </div>
         </div>
       </div>
-      <div class="paganini">
-        <img src="{{page.header.paganini.cover|first.path}}" />
-      </div>
-      <div class="paganini-projects">
-        {% for project in page.header.paganini.projects %}
-             {% set append %}
-                {% if loop.first %} active
-                {% else %} queue
-                {% endif %}
-            {% endset %}
-            <div class="paganini-project-image {{ append }}">
-                <img src="{{project.path}}" />
-            </div>
-        {% endfor %}
-      </div>
-      <div class="footer"></div>
-    </div>
-{% endblock %}
+    {% endblock %}
 
-{% block bottom %}
-    {{ assets.js('bottom')|raw }}
-{% endblock %}
-
-</body>
+    {% block bottom %}
+      {{ assets.js('bottom')|raw }}
+    {% endblock %}
+  </body>
 </html>

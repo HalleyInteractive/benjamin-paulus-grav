@@ -31,6 +31,7 @@ function scrollEvent(scrollPosition) {
   fixScrollTimeout = setTimeout(() => {
       fixScrollPosition(scrollPosition);
   }, 500);
+  setFooterVisualPosition(scrollPosition);
 }
 
 function fixScrollPosition(scrollPosition) {
@@ -44,6 +45,18 @@ function fixScrollPosition(scrollPosition) {
         }
     }
     nearestPage.scrollIntoView({behavior:'smooth'});
+}
+
+function setFooterVisualPosition(scrollPosition) {
+    const scrollHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+    );
+    const windowHeight = document.documentElement.clientHeight;
+    const footerVisual = pages.footer.querySelector('.footer-visual img');
+    const fromBottom = scrollHeight - (scrollPosition + windowHeight);
+    footerVisual.style.transform = `translate(0px, ${Math.min(footerVisual.clientHeight, fromBottom)}px) rotate(${Math.min(5, fromBottom)}deg)`;
 }
 
 document.addEventListener('scroll', function(e) {
