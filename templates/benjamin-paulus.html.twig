@@ -64,6 +64,13 @@
         </div>
         <div class="paganini">
           <img src="{{ page.header.paganini.cover|first.path }}" />
+          <div class="paganini-logo">
+            <img src="{{ url('theme://images/paganini-logo.png') }}" />
+          </div>
+          <div class="paganini-patreon">
+            <p>Help us make awesome comics!<br />
+            Become a Paganini Comics Patreon!</p>
+          </div>
         </div>
         <div class="paganini-projects">
           {% for project in page.header.paganini.projects %}

@@ -193,12 +193,36 @@ color: #FFFFFF;
 
 .paganini {
   grid-area: paganini;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+    "paganini-logo"
+    "paganini-patreon";
 }
 
-.paganini img {
+.paganini-logo {
+  grid-area: paganini-logo;
+  justify-content: center;
+  align-items:flex-end;
+  display: flex;
+  z-index: 1;
+}
+
+.paganini-patreon {
+  grid-area: paganini-patreon;
+  justify-content: center;
+  align-items: baseline;
+  display: flex;
+  z-index: 1;
+}
+
+.paganini > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  z-index: 0;
 }
 
 .paganini-projects {
@@ -292,8 +316,6 @@ color: #FFFFFF;
   grid-area: fs;
   filter: invert(100);
 }
-
-
 
 .footer-visual {
   grid-area: fv;
