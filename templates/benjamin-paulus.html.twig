@@ -15,8 +15,6 @@
 {% endblock head %}
 
 {% block stylesheets %}
-    {% do assets.addCss('https://unpkg.com/purecss@1.0.0/build/pure-min.css', 100) %}
-    {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %}
     {% do assets.addCss('theme://css/custom.css', 98) %}
 {% endblock %}
 
@@ -24,6 +22,7 @@
     {{ assets.css()|raw }}
     {{ assets.js()|raw }}
 {% endblock %}
+<script type="text/javascript" src="{{ url('theme://js/main.js') }}"></script>
 </head>
 <body id="top" class="{{ page.header.body_classes|e }}">
 
@@ -37,12 +36,11 @@
             <img class="benjamin-paulus-title" src="{{ url('theme://images/BP_TITLE.svg') }}"/>
           </div>
           <div class="social">
-            <div class="social-btn rotate-in-2-cw"></div>
-            <div class="social-btn rotate-in-2-cw"></div>
-            <div class="social-btn rotate-in-2-cw"></div>
-            <div class="social-btn rotate-in-2-cw"></div>
-            <div class="social-btn rotate-in-2-cw"></div>
-            <div class="social-btn rotate-in-2-cw"></div>
+            {% for social in page.header.bp.social %}
+            <div class="social-btn rotate-in-2-cw">
+                <a href="{{social.url}}" target="_blank"><img src="{{social.image|first.path}}" /></a>
+            </div>
+            {% endfor %}
           </div>
           <div class="scroll">
             <img class="scroll-btn" src="{{ url('theme://images/scroll.svg') }}"/>
@@ -54,7 +52,12 @@
       </div>
       <div class="paganini-projects">
         {% for project in page.header.paganini.projects %}
-            <div class="paganini-project-image">
+             {% set append %}
+                {% if loop.first %} active
+                {% else %} queue
+                {% endif %}
+            {% endset %}
+            <div class="paganini-project-image {{ append }}">
                 <img src="{{project.path}}" />
             </div>
         {% endfor %}

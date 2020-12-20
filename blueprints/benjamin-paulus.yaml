@@ -21,17 +21,23 @@ form:
               accept:
                 - image/*
             header.bp.social:
-              
+              name: social
+              type: list
+              label: Social Buttons
               fields:
-                header.bp.social.image:
-                  name: Social Links
+                .image:
+                  name: image
                   type: file
-                  label: Social Links
+                  label: Social Image
                   destination: 'self@'
                   filesize: 10
                   multiple: false
                   accept:
                     - image/*
+                .url:
+                  name: url
+                  type: text
+                  label: URL
         paganini:
           type: tab
           title: Paganini
