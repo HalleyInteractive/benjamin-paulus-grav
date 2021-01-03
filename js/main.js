@@ -64,6 +64,7 @@ function setFooterVisualPosition(scrollPosition) {
     footerVisual.style.transform = `translate(0px, ${Math.min(footerVisual.clientHeight, fromBottom)}px)`;
 }
 
+
 document.addEventListener('scroll', function(e) {
   lastKnowScrollPosition = window.scrollY;
   if (!ticking) {
