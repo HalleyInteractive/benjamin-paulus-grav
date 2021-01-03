@@ -64,6 +64,24 @@ form:
               multiple: true
               accept:
                 - image/*
+            header.paganini.social:
+              name: social
+              type: list
+              label: Social Buttons Paganini
+              fields:
+                .image:
+                  name: image
+                  type: file
+                  label: Social Image
+                  destination: 'self@'
+                  filesize: 10
+                  multiple: false
+                  accept:
+                    - image/*
+                .url:
+                  name: url
+                  type: text
+                  label: URL
         footer:
           type: tab
           title: Footer

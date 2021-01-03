@@ -1,4 +1,9 @@
 /* Core Stuff */
+@font-face {
+  font-family: SwingDevil;
+  src: url("../fonts/swingdevil-regular.otf") format("opentype");
+}
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -177,11 +182,12 @@ color: #FFFFFF;
 .paganini {
   grid-area: paganini;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
   grid-template-columns: 1fr;
   grid-template-areas: 
     "paganini-logo"
-    "paganini-patreon";
+    "paganini-patreon"
+    "paganini-social";
 }
 
 .paganini-logo {
@@ -192,12 +198,23 @@ color: #FFFFFF;
   z-index: 1;
 }
 
+.paganini-logo img {
+  width: 70%;
+  height: auto;
+  max-width: 600px;
+}
+
 .paganini-patreon {
+  font-family: SwingDevil;
   grid-area: paganini-patreon;
   justify-content: center;
   align-items: baseline;
   display: flex;
   z-index: 1;
+  font-size: 30px;
+  line-height: 35px;
+  align-items: center;
+  text-align: center;
 }
 
 .paganini > img {
@@ -206,6 +223,20 @@ color: #FFFFFF;
   object-fit: cover;
   position: absolute;
   z-index: 0;
+}
+
+.paganini-social {
+  overflow: hidden;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  z-index: 1;
+}
+
+.paganini-social .social-btn {
+  width: auto;
+  height: auto;
+  margin: 0px 5px
 }
 
 .paganini-projects {
@@ -258,6 +289,7 @@ color: #FFFFFF;
 }
 
 .contact {
+  font-family: SwingDevil;
   grid-area: contact;
   justify-content: center;
   align-items: center;

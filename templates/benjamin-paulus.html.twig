@@ -73,6 +73,15 @@
             <p>Help us make awesome comics!<br />
             Become a Paganini Comics Patreon!</p>
           </div>
+          <div class="paganini-social">
+              {% for social in page.header.paganini.social %}
+                <div class="social-btn rotate-in-2-cw">
+                  <a href="{{ social.url }}" target="_blank">
+                    <img src="{{ social.image|first.path }}" />
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
         </div>
         <div class="paganini-projects">
           {% for project in page.header.paganini.projects %}
