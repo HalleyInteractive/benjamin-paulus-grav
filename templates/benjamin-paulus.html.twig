@@ -37,37 +37,43 @@
   </head>
   <body id="top" class="{{ page.header.body_classes|e }}">
     {% block body %}
-      <div class="grid-container">
+      <main class="grid-container">
         <div class="main">
-          <img src="{{ page.header.bp.splash|first.path }}" />
+          
+          <img src="{{ page.header.splash.image|first.path }}" alt="{{page.header.splash.alt}}"/>
           <div class="main-grid-container">
-            <div class="benjamin-paulus-stamp-container">
-              <img class="benjamin-paulus-stamp"
-                src="{{ url('theme://images/BP_STAMP.svg') }}" />
-            </div>
-            <div class="benjamin-paulus-title-container">
-              <img class="benjamin-paulus-title"
-                src="{{ url('theme://images/BP_TITLE.svg') }}" />
-            </div>
-            <div class="social">
-              {% for social in page.header.social %}
-                <div class="social-btn rotate-in-2-cw">
-                  <a href="{{ social.url }}" target="_blank">
-                    <img src="{{ social.image|first.path }}" />
-                  </a>
-                </div>
-              {% endfor %}
-            </div>
-            <div class="scroll">
-              <img class="scroll-btn"
-                src="{{ url('theme://images/scroll.svg') }}" />
-            </div>
+            <header>
+              <div class="benjamin-paulus-stamp-container">
+                <img class="benjamin-paulus-stamp"
+                  src="{{ url('theme://images/BP_STAMP.svg') }}"
+                  alt="Benjamin Paulus Stamp" />
+              </div>
+              <div class="benjamin-paulus-title-container">
+                <img class="benjamin-paulus-title"
+                  src="{{ url('theme://images/BP_TITLE.svg') }}"
+                  alt="Benjamin Paulus: Concept Art, Illustration, Storytelling, Graphic Design." />
+              </div>
+              <div class="social">
+                {% for social in page.header.social %}
+                  <div class="social-btn rotate-in-2-cw">
+                    <a href="{{ social.url }}" target="_blank" rel="noreferrer noopener">
+                      <img src="{{ social.image|first.path }}"
+                      alt="{{ social.alt }}" />
+                    </a>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="scroll skip-link">
+                <img class="scroll-btn"
+                  src="{{ url('theme://images/scroll.svg') }}" alt="Scroll Down"/>
+              </div>
+            </header>
           </div>
         </div>
         <div class="paganini">
-          <img src="{{ page.header.paganini.cover|first.path }}" />
+          <img src="{{ page.header.paganini.cover|first.path }}" alt="Paganini Visual" />
           <div class="paganini-logo">
-            <img src="{{ url('theme://images/paganini-logo.png') }}" />
+            <img src="{{ url('theme://images/paganini-logo.png') }}" alt="Paganini" />
           </div>
           <div class="paganini-patreon">
             <p>Help us make awesome comics!<br />
@@ -76,8 +82,9 @@
           <div class="paganini-social">
               {% for social in page.header.paganini.social %}
                 <div class="social-btn rotate-in-2-cw">
-                  <a href="{{ social.url }}" target="_blank">
-                    <img src="{{ social.image|first.path }}" />
+                  <a href="{{ social.url }}" target="_blank" rel="noreferrer noopener">
+                    <img src="{{ social.image|first.path }}"
+                    alt="{{ social.alt }}" />
                   </a>
                 </div>
               {% endfor %}
@@ -93,7 +100,7 @@
               {% endif %}
             {% endset %}
             <div class="paganini-project-image {{ append }}">
-              <img src="{{ project.path }}" />
+              <img src="{{ project.project|first.path }}" alt="{{ project.alt }}" />
             </div>
           {% endfor %}
         </div>
@@ -102,29 +109,32 @@
             CONTACT:
           </div>
           <div class="cv">
-            <a href="{{ page.header.footer.cv|first.path }}" target="_blank">
-              <img src="{{ url('theme://images/DOWNLOAD CV.png') }}" />
+            <a href="{{ page.header.footer.cv|first.path }}" target="_blank" rel="noreferrer noopener">
+              <img src="{{ url('theme://images/DOWNLOAD CV.png') }}" alt="Curriculum vitae" />
             </a>
           </div>
           <div class="social footer-social">
             {% for social in page.header.social %}
               <div class="social-btn rotate-in-2-cw">
-                <a href="{{ social.url }}" target="_blank">
-                  <img src="{{ social.image|first.path }}" />
+                <a href="{{ social.url }}" target="_blank" rel="noreferrer noopener">
+                  <img src="{{ social.image|first.path }}"
+                  alt="{{ social.alt }}" />
                 </a>
               </div>
             {% endfor %}
           </div>
           <div class="halley-interactive">
-            <a href="https://www.halley-interactive.com" target="_blank">
-              <img src="{{ url('theme://images/Logo_Halley.png') }}" />
+            <a href="https://www.halley-interactive.com" target="_blank" rel="noreferrer noopener">
+              <img src="{{ url('theme://images/Logo_Halley.png') }}"
+              alt="Halley Interactive" />
             </a>
           </div>
           <div class="footer-visual">
-            <img src="{{ url('theme://images/footer-visual.png') }}" />
+            <img src="{{ url('theme://images/footer-visual.png') }}"
+            alt="Footer Visual" />
           </div>
         </div>
-      </div>
+      </main>
     {% endblock %}
 
     {% block bottom %}
