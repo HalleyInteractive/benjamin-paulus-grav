@@ -61,7 +61,7 @@ function setFooterVisualPosition(scrollPosition) {
     const windowHeight = document.documentElement.clientHeight;
     const footerVisual = pages.footer.querySelector('.footer-visual img');
     const fromBottom = scrollHeight - (scrollPosition + windowHeight);
-    footerVisual.style.transform = `translate(0px, ${Math.min(footerVisual.clientHeight, fromBottom)}px) rotate(${Math.min(5, fromBottom)}deg)`;
+    footerVisual.style.transform = `translate(0px, ${Math.min(footerVisual.clientHeight, fromBottom)}px)`;
 }
 
 document.addEventListener('scroll', function(e) {
