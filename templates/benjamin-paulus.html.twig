@@ -16,9 +16,13 @@
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       {% include 'partials/metadata.html.twig' %}
 
-      <link rel="icon"
-        type="image/png"
-        href="{{ url('theme://images/logo.png')|e }}" />
+      <link rel="apple-touch-icon" sizes="180x180" href="{{ url('theme://images/favicon/apple-touch-icon.png')|e }}" />
+      <link rel="icon" type="image/png" sizes="32x32" href="{{ url('theme://images/favicon/favicon-32x32.png')|e }}" />
+      <link rel="icon" type="image/png" sizes="16x16" href="{{ url('theme://images/favicon/favicon-16x16.png')|e }}" />
+      <link rel="manifest" href="{{ url('theme://images/favicon/site.webmanifest')|e }}" />
+      <link rel="mask-icon" href="{{ url('theme://images/favicon/safari-pinned-tab.svg')|e }}" color="#5bbad5">
+      <meta name="msapplication-TileColor" content="#da532c">
+      <meta name="theme-color" content="#ffffff">
       <link rel="canonical" href="{{ page.url(true, true)|e }}" />
     {% endblock %}
 
@@ -45,12 +49,12 @@
             <header>
               <div class="benjamin-paulus-stamp-container">
                 <img class="benjamin-paulus-stamp"
-                  src="{{ url('theme://images/BP_STAMP.svg') }}"
+                  src="{{ url('theme://images/bp_stamp.svg') }}"
                   alt="Benjamin Paulus Stamp" />
               </div>
               <div class="benjamin-paulus-title-container">
                 <img class="benjamin-paulus-title"
-                  src="{{ url('theme://images/BP_TITLE.svg') }}"
+                  src="{{ url('theme://images/bp_title.svg') }}"
                   alt="Benjamin Paulus: Concept Art, Illustration, Storytelling, Graphic Design." />
               </div>
               <div class="social">
@@ -65,15 +69,18 @@
               </div>
               <div class="scroll skip-link">
                 <img class="scroll-btn"
-                  src="{{ url('theme://images/scroll.svg') }}" alt="Scroll Down"/>
+                  src="{{ url('theme://images/bp_scroll_down.svg') }}" alt="Scroll Down"/>
               </div>
             </header>
           </div>
         </div>
         <div class="paganini">
-          <img src="{{ page.header.paganini.cover|first.path }}" alt="Paganini Visual" />
+          <div class="paganini-visual">
+            <div class="paganini-visual-snow"><img src="{{ url('theme://images/bp_paganini_snow.png') }}" alt="Paganini Visual Snow" /></div>
+            <div class="paganini-visual-wicked-twister"><img src="{{ url('theme://images/bp_paganini_wicked_twister.png') }}" alt="Paganini Visual Wicked Twister" /></div>
+          </div>
           <div class="paganini-logo">
-            <img src="{{ url('theme://images/paganini-logo.png') }}" alt="Paganini" />
+            <img src="{{ url('theme://images/bp_paganini_logo.svg') }}" alt="Paganini" />
           </div>
           <div class="paganini-patreon">
             <p>Help us make awesome comics!<br />
@@ -110,7 +117,7 @@
           </div>
           <div class="cv">
             <a href="{{ page.header.footer.cv|first.path }}" target="_blank" rel="noreferrer noopener">
-              <img src="{{ url('theme://images/DOWNLOAD CV.png') }}" alt="Curriculum vitae" />
+              <img src="{{ url('theme://images/download-cv.png') }}" alt="Download Curriculum vitae" />
             </a>
           </div>
           <div class="social footer-social">
@@ -125,7 +132,7 @@
           </div>
           <div class="halley-interactive">
             <a href="https://www.halley-interactive.com" target="_blank" rel="noreferrer noopener">
-              <img src="{{ url('theme://images/Logo_Halley.png') }}"
+              <img src="{{ url('theme://images/halley-interactive-logo.png') }}"
               alt="Halley Interactive" />
             </a>
           </div>
