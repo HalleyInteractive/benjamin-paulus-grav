@@ -58,7 +58,7 @@ form:
               name: project
               type: list
               fields:
-                .project:
+                .visual:
                   name: visual
                   type: file
                   label: Project Image
@@ -67,7 +67,7 @@ form:
                   multiple: true
                   accept:
                     - image/*
-                .project:
+                .visual_mobile:
                   name: visual_mobile
                   type: file
                   label: Project Image Mobile
