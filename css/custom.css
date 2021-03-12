@@ -75,6 +75,13 @@ color: #FFFFFF;
       "paganini"
       "paganini-projects"
       "footer";
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+}
+
+.page {
+  scroll-snap-align: start;
+  position: relative;
 }
   
 .main-grid-container header {

@@ -32,24 +32,7 @@ function initBP() {
 }
 
 function scrollEvent(scrollPosition) {
-  clearTimeout(fixScrollTimeout);
-  fixScrollTimeout = setTimeout(() => {
-      fixScrollPosition(scrollPosition);
-  }, 500);
   setFooterVisualPosition(scrollPosition);
-}
-
-function fixScrollPosition(scrollPosition) {
-    let nearestPage;
-    let diffFromTop = Infinity;
-    for(const [index, page] of Object.entries(pages)) {
-        const rect = page.getBoundingClientRect();
-        if(Math.abs(rect.top) < diffFromTop) {
-            diffFromTop = Math.abs(rect.top)
-            nearestPage = page;
-        }
-    }
-    nearestPage.scrollIntoView({behavior:'smooth'});
 }
 
 function setFooterVisualPosition(scrollPosition) {
@@ -63,18 +46,6 @@ function setFooterVisualPosition(scrollPosition) {
     const fromBottom = scrollHeight - (scrollPosition + windowHeight);
     footerVisual.style.transform = `translate(0px, ${Math.min(footerVisual.clientHeight, fromBottom)}px)`;
 }
-
-
-document.addEventListener('scroll', function(e) {
-  lastKnowScrollPosition = window.scrollY;
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-        scrollEvent(lastKnowScrollPosition);
-        ticking = false;
-    });
-    ticking = true;
-  }
-});
 
 window.addEventListener('DOMContentLoaded', (event) => {
     initBP();
