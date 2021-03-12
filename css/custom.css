@@ -303,12 +303,12 @@ color: #FFFFFF;
   ". . . . . . . . . ."
   ". . . . . . . . . ."
   ". . . . contact contact . . . ."
-  ". . cv fs fs fs fs hi . ."
-  ". . . . fv fv . . . ."
-  ". . . . fv fv . . . ."
-  ". . . . fv fv . . . ."
-  ". . . . fv fv . . . ."
-  ". . . . fv fv . . . ."
+  "cv cv cv fs fs fs fs hi hi hi"
+  ". . . fv fv fv fv . . ."
+  ". . . fv fv fv fv . . ."
+  ". . . fv fv fv fv . . ."
+  ". . . fv fv fv fv . . ."
+  ". . . fv fv fv fv . . ."
 }
 
 .contact {
@@ -321,8 +321,6 @@ color: #FFFFFF;
 
 .cv {
   grid-area: cv;
-  max-width: 192px;
-  max-height: 64px;
 }
 
 .cv, .halley-interactive {
@@ -332,19 +330,20 @@ color: #FFFFFF;
 }
 
 .cv img {
-  width: 75%;
-  height: auto;
+  display:block;
+  max-width: 192px;
+  max-height: 64px;
 }
 
 .halley-interactive {
   grid-area: hi;
-  max-width: 162px;
-  max-height: 94px;
 }
 
 .halley-interactive img {
-  width: 75%;
-  height: auto;
+  display: block;
+  max-width: 162px;
+  max-height: 94px;
+  margin-top:-25px
 }
 
 .footer .footer-social {
@@ -403,6 +402,24 @@ color: #FFFFFF;
     grid-row: 16 / 17;
   }
 }
+
+@media only screen and (max-width: 800px) {
+  .cv img {
+    max-width: 81px;
+    max-height: 32px;
+  }
+  
+  .halley-interactive img {
+    max-width: 81px;
+    max-height: 47px;
+    margin-top:-14px
+  }  
+  .social-btn img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 
 
   
