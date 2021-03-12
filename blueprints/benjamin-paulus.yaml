@@ -59,9 +59,18 @@ form:
               type: list
               fields:
                 .project:
-                  name: project
+                  name: visual
                   type: file
                   label: Project Image
+                  destination: 'self@'
+                  filesize: 10
+                  multiple: true
+                  accept:
+                    - image/*
+                .project:
+                  name: visual_mobile
+                  type: file
+                  label: Project Image Mobile
                   destination: 'self@'
                   filesize: 10
                   multiple: true

@@ -107,7 +107,11 @@
               {% endif %}
             {% endset %}
             <div class="paganini-project-image {{ append }}">
-              <img src="{{ project.project|first.path }}" alt="{{ project.alt }}" />
+              <picture>
+                <source srcset="{{ project.visual_mobile|first.path }}" alt="{{ project.alt }}"
+                        media="(min-width: 800px)">
+                  <img src="{{ project.visual|first.path }}" alt="{{ project.alt }}" />
+              </picture>
             </div>
           {% endfor %}
         </div>
