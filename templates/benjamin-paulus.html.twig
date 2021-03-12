@@ -42,7 +42,7 @@
   <body id="top" class="{{ page.header.body_classes|e }}">
     {% block body %}
       <main class="grid-container">
-        <div class="main">
+        <section class="main page">
           
           <img src="{{ page.header.splash.image|first.path }}" alt="{{page.header.splash.alt}}"/>
           <div class="main-grid-container">
@@ -73,8 +73,8 @@
               </div>
             </header>
           </div>
-        </div>
-        <div class="paganini">
+        </section>
+        <section class="paganini page">
           <div class="paganini-visual">
             <div class="paganini-visual-snow"><img src="{{ url('theme://images/bp_paganini_snow.png') }}" alt="Paganini Visual Snow" /></div>
             <div class="paganini-visual-wicked-twister"><img src="{{ url('theme://images/bp_paganini_wicked_twister.png') }}" alt="Paganini Visual Wicked Twister" /></div>
@@ -96,8 +96,8 @@
                 </div>
               {% endfor %}
             </div>
-        </div>
-        <div class="paganini-projects">
+        </section>
+        <section class="paganini-projects page">
           {% for project in page.header.paganini.projects %}
             {% set append %}
               {% if loop.first %}
@@ -109,13 +109,13 @@
             <div class="paganini-project-image {{ append }}">
               <picture>
                 <source srcset="{{ project.visual_mobile|first.path }}" alt="{{ project.alt }}"
-                        media="(min-width: 800px)">
+                        media="(max-width: 1000px)">
                   <img src="{{ project.visual|first.path }}" alt="{{ project.alt }}" />
               </picture>
             </div>
           {% endfor %}
-        </div>
-        <div class="footer">
+        </section>
+        <section class="footer page">
           <div class="contact">
             CONTACT:
           </div>
@@ -144,7 +144,7 @@
             <img src="{{ url('theme://images/footer-visual.png') }}"
             alt="Footer Visual" />
           </div>
-        </div>
+        </section>
       </main>
     {% endblock %}
 
