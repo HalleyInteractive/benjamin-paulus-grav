@@ -14,7 +14,7 @@
 body {
     font-size: 1rem;
     line-height: 1.7;
-    color: #606d6e;
+    color: #FFF;
 }
 
 h1,
@@ -433,6 +433,7 @@ color: #FFFFFF;
     width: 30px;
     height: 30px;
   }
+
   .footer .social-btn img {
     width: 20px;
     height: 20px;
