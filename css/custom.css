@@ -429,9 +429,13 @@ color: #FFFFFF;
     margin-top:-14px
   }
 
-  .footer .social-btn img {
+  .social-btn img {
     width: 30px;
     height: 30px;
+  }
+  .footer .social-btn img {
+    width: 20px;
+    height: 20px;
   }
 }
   
