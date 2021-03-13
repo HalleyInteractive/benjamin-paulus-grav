@@ -3,6 +3,25 @@ let fixScrollTimeout;
 let lastKnowScrollPosition = 0;
 let ticking = false;
 
+function animationInterval(ms, callback) {
+    const start = document.timeline ? document.timeline.currentTime : performance.now();
+  
+    function frame(time) {
+      callback(time);
+      scheduleFrame(time);
+    }
+  
+    function scheduleFrame(time) {
+      const elapsed = time - start;
+      const roundedElapsed = Math.round(elapsed / ms) * ms;
+      const targetNext = start + roundedElapsed + ms;
+      const delay = targetNext - performance.now();
+      setTimeout(() => requestAnimationFrame(frame), delay);
+    }
+  
+    scheduleFrame(start);
+}
+
 function nextSlidePlease() {
     const lastActiveSlide = document.querySelector('.paganini-project-image.deactivated');
     const currentSlide = document.querySelector('.paganini-project-image.active');
@@ -19,7 +38,7 @@ function initBP() {
     const vh = window.innerHeight * 0.01;
     console.log(`set height: ${vh}`);
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-    setInterval(nextSlidePlease, 7000);
+    animationInterval(7000, nextSlidePlease);
     pages = {
         splash: document.querySelector('.main'),
         paganini: document.querySelector('.paganini'),
