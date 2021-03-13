@@ -16,6 +16,9 @@ function nextSlidePlease() {
 }
 
 function initBP() {
+    const vh = window.innerHeight * 0.01;
+    console.log(`set height: ${vh}`);
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
     setInterval(nextSlidePlease, 7000);
     pages = {
         splash: document.querySelector('.main'),
