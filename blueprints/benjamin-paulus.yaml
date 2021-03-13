@@ -46,6 +46,15 @@ form:
               filesize: 10
               accept:
                 - image/*
+            header.splash.image_mobile:
+              name: splash_mobile
+              type: file
+              label: Splash Image Mobile
+              destination: 'self@'
+              multiple: false
+              filesize: 10
+              accept:
+                - image/*
             header.splash.alt:
               name: alt
               type: text

@@ -43,8 +43,12 @@
     {% block body %}
       <main class="grid-container">
         <section class="main page">
+          <picture>
+            <source srcset="{{ page.header.splash.image_mobile|first.path }}" alt="{{page.header.splash.alt}}"
+                    media="(max-width: 800px)">
+              <img src="{{ page.header.splash.image|first.path }}" alt="{{page.header.splash.alt}}"/>
+          </picture>
           
-          <img src="{{ page.header.splash.image|first.path }}" alt="{{page.header.splash.alt}}"/>
           <div class="main-grid-container">
             <header>
               <div class="benjamin-paulus-stamp-container">
